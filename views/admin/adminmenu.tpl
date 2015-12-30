@@ -49,6 +49,10 @@
 	<li><a href="{$smarty.const.WWW_TOP}/binaryblacklist-list.php">View</a><span class="divider">/</span></li>
 	<li><a style="padding:0;" href="{$smarty.const.WWW_TOP}/binaryblacklist-edit.php?action=add">Add</a></li>
 </ul>
+<ul class="navigator">
+	<li class="active">Delete Other>Misc<span class="divider">/</span></li>
+	<li><a href="{$smarty.const.WWW_TOP}/deletereleases.php">Delete</a><span class="divider">/</span></li>
+</ul>
 
 <li class="nav-header" style="padding-top: 15px;">Content</li> 
 

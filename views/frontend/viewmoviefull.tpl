@@ -1,7 +1,9 @@
 {if $results|@count > 0}
 
 	{foreach from=$results item=result}
-		
+		<div id="backdrop" style="position: absolute; opacity: 0.4; width: 100%; height: 480px; z-index: -2; top: 0px; left: 0; background: url('{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-backdrop.jpg') no-repeat; background-size: 100% 618px;" id="fanart">
+</div>
+        
 		<div id="moviefull" style="min-height:340px;">
 		{if $result.cover == 1}<img class="shadow pic img-polaroid pull-right" style="margin-right:50px;" alt="{$result.title|escape:"htmlall"} Logo" src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-cover.jpg" />{/if}
 		
@@ -14,7 +16,6 @@
 		{if $result.tagline != ''}
 			<p class="lead" style="margin-right:300px;" >"{$result.tagline|escape:"htmlall"}"</p>
 		{/if}
-		
 		
 		<dl style="margin-right:300px;">
 			{if $result.plot != ''}
@@ -36,6 +37,10 @@
             {if $result.imdbID != ''}
 				<dt>Imdb ID</dt> 
 				<dd>{$result.imdbID|replace:"|":", "}</dd>
+			{/if}
+            {if $result.tmdbID != ''}
+				<dt>Tmdb ID</dt> 
+				<dd>{$result.tmdbID|replace:"|":", "}</dd>
 			{/if}
 		</dl>
 		

@@ -19,7 +19,7 @@
 	<link href="http://www.google.com/cse/api/branding.css" rel="stylesheet" type="text/css" media="screen" />
 {/if}
 	
-	<link href="{$smarty.const.WWW_TOP}/templates/baffi/styles/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="{$smarty.const.WWW_TOP}/templates/baffi-blue/styles/style.css" rel="stylesheet" type="text/css" media="screen" />
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" type="image/ico" href="{$smarty.const.WWW_TOP}/templates/default/images/favicon.ico"/>
@@ -64,7 +64,10 @@
 						{if $loggedin=="true"}
 							{$header_menu}
 						{/if}
-					{if $loggedin=="true"}
+                        {if $loggedin=="false"}
+							<a href="{$smarty.const.WWW_TOP}/login">Login</a>
+						{/if}
+                        {if $loggedin=="true"}
 						<ul class="nav pull-right">
 							<li class="dropdown">
 								<a id="dropUser" class="dropdown-toggle" data-toggle="dropdown" href="#">{$userdata.username} <b class="caret"></b></a>
