@@ -1,14 +1,17 @@
 {if $results|@count > 0}
 
 	{foreach from=$results item=result}
-		<div id="backdrop" style="position: absolute; opacity: 0.4; width: 100%; height: 480px; z-index: -2; top: 0px; left: 0; background: url('{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-backdrop.jpg') no-repeat; background-size: 100% 618px;" id="fanart">
+		<div id="backdrop" style="position:absolute; opacity: 0.6; width: 100%; height: 500px; z-index: -2; top: 0px; left: 0; background: url('{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-backdrop.jpg') no-repeat; background-size: 100% 500px;" id="fanart">
 </div>
         
-		<div id="moviefull" style="min-height:340px;">
+		<div id="moviefull" style="min-height:340px; margin-right:100px;">
 		{if $result.cover == 1}<img class="shadow pic img-polaroid pull-right" style="margin-right:50px;" alt="{$result.title|escape:"htmlall"} Logo" src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-cover.jpg" />{/if}
 		
 
-		<h2 style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</h2>    <a class="rndbtn badge badge-imdb" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbID}/" name="imdb{$result.imdbID}" title="View imdb page">Imdb</a>
+		<h2 style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</h2>    <a href="#" name="name{$result.imdbID}" title="View movie info" class="rndbtn badge badge-trakt" rel="movie" >Cover</a>
+                        {if $result.trailer != ""}<a href="#" name="name{$result.imdbID}" title="View movie trailer" class="rndbtn badge badge-trakt" rel="trailer" >Trailer</a>{/if}
+						<a class="rndbtn badge badge-trakt" target="_blank" href="{$site->dereferrer_link}http://trakt.tv/search/imdb?q=tt{$result.imdbID}/" name="trakt{$result.imdbID}" title="View trakt page">Trakt</a>
+						<a class="rndbtn badge badge-trakt" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbID}/" name="imdb{$result.imdbID}" title="View imdb page">Imdb</a>
 		
 		<h4>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h4>
 		
@@ -43,7 +46,6 @@
 				<dd>{$result.tmdbID|replace:"|":", "}</dd>
 			{/if}
 		</dl>
-		
 		
 		</div>
 		
